@@ -1,12 +1,8 @@
 import React from 'react';
-import HomePage from './Pages/HomePage/HomePage';
+import Home from './Pages/Home/HomePage';
 import {Route} from "react-router-dom";
-
-const Home = () => {
-  return(
-    <HomePage/>
-  )
-}
+import Shop from "./Pages/Shop/Shop";
+import './App.css';
 
 const HatsPage = (props: any) =>{
   console.log(props);
@@ -22,7 +18,8 @@ const App = () => {
   return (
     <div>
         <Route exact path='/' component={Home} />
-        <Route path='/hats' component={HatsPage} />
+        <Route path='/shop' component={Shop} />
+        <Route path='/shop/hats' component={HatsPage} />
     </div>
   );
 }

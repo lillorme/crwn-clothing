@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 import './DirectoryMenu.css';
 import MenuItem from '../MenuItem/MenuItem';
+
 interface IProps {
   superhero: string;
 }
