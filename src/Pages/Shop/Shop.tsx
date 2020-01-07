@@ -1,60 +1,23 @@
 import React from 'react';
 import './Shop.css';
-import Collection from '../../Component/CollectionPreview/CollectionPreview';
-import SHOP_DATA from './ShopData';
+import CollectionOverview from '../../Component/CollectionOverview/CollectionOverview';
+import {Route} from 'react-router-dom';
+import Collections from '../collections/collections';
 
-interface IProps {
-  superhero: string;
-}
 
-interface Items{
-  id: number,
-  name: string,
-  imageUrl: string,
-  price: number
-}
-interface Collection{
-  id: number,
-  title: string,
-  routeName: string,
-  items:Items[]
-}
+const Shop = (props: any) => {
+ 
+  const { match } = props;
 
-interface IState{
-  collections: Collection[]
-}
+  return (
+    <div className="Shop">
+      
+        <Route exact path={`${match.path}`} component={CollectionOverview} />
+        <Route path={`${match.path}/:categoryId`} component={Collections} />
 
-class Shop extends React.Component <IProps, IState> {
+    </div>
+  );
 
-  constructor(props: IProps){
-    
-    super(props);
-
-    this.state = {
-      collections: SHOP_DATA,
-    }
-
-  }
-  
-  render(){
-
-    const {collections} = this.state;
-
-    return (
-      <div className="Shop">
-          <h1>Shop Page</h1>
-
-          {
-            collections.map((collection, i) => (
-              
-              <Collection key={i} item-id={collection.id} title={collection.title} collections={collection}/>
-
-            ))
-          }
-          
-      </div>
-    );
-  }
 }
 
 export default Shop;

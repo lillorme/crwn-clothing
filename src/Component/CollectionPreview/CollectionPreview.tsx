@@ -3,7 +3,6 @@ import './CollectionPreview.css';
 import CollectionItem from '../CollectionItem/CollectionItem';
 
 const CollectionPreview = (props:any) => {
-    console.log(props.collections.items);
     return (
       <div className="collection-preview">
           <h2>{props.collections.title}</h2>
@@ -11,8 +10,8 @@ const CollectionPreview = (props:any) => {
             {
                 props.collections.items
                 .filter((item:any, idx:number) => idx < 4)
-                .map((item:any, i:number ) => (
-                    <CollectionItem key={item.id} CollectionItem={item}>{item.name}</CollectionItem>
+                .map((item:any) => (
+                    <CollectionItem key={item.id} Item={item}>{item.name}</CollectionItem>
                 ))
             }
           </div>

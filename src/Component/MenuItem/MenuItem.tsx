@@ -1,6 +1,6 @@
 import React from 'react';
 import './MenuItem.css';
-import {Link, withRouter} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 
 const MenuItem = (props: any) => {
   
