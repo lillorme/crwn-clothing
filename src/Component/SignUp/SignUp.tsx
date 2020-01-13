@@ -1,8 +1,8 @@
 import React from 'react';
-import './SignUp.css';
 import Input from '../Form/Input/Input';
 import Button from '../Form/Button/Button';
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+import { SignUpContainer, SignUpTitle } from './sign-up.styles';
 
 interface IProps {
     data: string;

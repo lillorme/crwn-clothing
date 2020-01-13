@@ -1,12 +1,17 @@
 import React from 'react';
-import './CartDropDown.css';
-import Button from '../Form/Button/Button';
 import CartItem from '../CartItem/CartItem';
 import {connect} from 'react-redux';
 import { selectCartItems } from '../../redux/cart/cart.selectors';
 import {createStructuredSelector} from 'reselect';
 import {withRouter} from 'react-router-dom';
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
+
+import {
+    CartDropdownContainer,
+    CartDropdownButton,
+    EmptyMessageContainer,
+    CartItemsContainer
+  } from './cart-dropdown.styles';
 
 const CartDropDown = (props:any) => {
 
@@ -18,8 +23,8 @@ const CartDropDown = (props:any) => {
     }
 
     return(
-        <div className="cart-dropdown">
-            <div className='cart-items'>
+        <CartDropdownContainer className="cart-dropdown">
+            <CartItemsContainer className='cart-items'>
                 {
                     cartItems.length ?
              
@@ -27,13 +32,13 @@ const CartDropDown = (props:any) => {
 
                     :
 
-                    <span className='empty-message'>Your cart is empty</span>
+                    <EmptyMessageContainer className='empty-message'>Your cart is empty</EmptyMessageContainer>
 
                 }
                 
-            </div>
-            <Button onClick={buttonClickHandler}>Go To Checkout</Button>
-        </div>
+            </CartItemsContainer>
+            <CartDropdownButton onClick={buttonClickHandler}>Go To Checkout</CartDropdownButton>
+        </CartDropdownContainer>
     )
 }
 

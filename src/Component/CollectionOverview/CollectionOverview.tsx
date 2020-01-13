@@ -1,10 +1,10 @@
 import React from 'react';
-import './CollectionOverview.css';
 import shopReducer  from '../../redux/shop/shop.reducer'
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCollectionsForPreview } from '../../redux/shop/shop.selector';
 import CollectionPreview from '../../Component/CollectionPreview/CollectionPreview';
+import { CollectionsOverviewContainer } from './collections-overview.styles';
 
 const CollectionOverview = (props:any) => {
 
@@ -12,7 +12,7 @@ const CollectionOverview = (props:any) => {
 
     return(
 
-        <div className='collection-overview'>
+        <CollectionsOverviewContainer className='collection-overview'>
             <h1>Shop Page</h1>
             {
                 collections.map((collection:any, i:number) => (
@@ -22,7 +22,7 @@ const CollectionOverview = (props:any) => {
                 ))
             }
         
-        </div>
+        </CollectionsOverviewContainer>
 
     )
 

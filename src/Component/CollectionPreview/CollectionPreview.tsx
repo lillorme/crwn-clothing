@@ -1,12 +1,16 @@
 import React from 'react';
-import './CollectionPreview.css';
 import CollectionItem from '../CollectionItem/CollectionItem';
+import {
+  CollectionPreviewContainer,
+  TitleContainer,
+  PreviewContainer
+} from './collection-preview.styles';
 
 const CollectionPreview = (props:any) => {
     return (
-      <div className="collection-preview">
-          <h2>{props.collections.title}</h2>
-          <div className="preview">
+      <CollectionPreviewContainer className="collection-preview">
+          <TitleContainer>{props.collections.title}</TitleContainer>
+          <PreviewContainer className="preview">
             {
                 props.collections.items
                 .filter((item:any, idx:number) => idx < 4)
@@ -14,8 +18,8 @@ const CollectionPreview = (props:any) => {
                     <CollectionItem key={item.id} Item={item}>{item.name}</CollectionItem>
                 ))
             }
-          </div>
-      </div>
+          </PreviewContainer>
+      </CollectionPreviewContainer>
     );
     
 }

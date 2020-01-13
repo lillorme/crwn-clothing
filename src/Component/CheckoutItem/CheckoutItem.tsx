@@ -1,11 +1,18 @@
 import React from 'react';
-import './CheckoutItem.css';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selectors';
 import { clearItemFromCart, addItem, removeItem } from '../../redux/cart/cart.actions';
+import { format } from 'path';
 
-    import { format } from 'path';
+import {
+    CheckoutItemContainer,
+    ImageContainer,
+    TextContainer,
+    QuantityContainer,
+    RemoveButtonContainer
+  } from './checkout-item.styles';
+
 const CheckoutItem = (props:any) => {
 
     const { cartItem, clearItem, addItem, removeItem } = props;
@@ -24,19 +31,19 @@ const CheckoutItem = (props:any) => {
     }
 
     return(
-        <div className="checkout-item">
-            <div className="image-container">
+        <CheckoutItemContainer className="checkout-item">
+            <ImageContainer className="image-container">
                 <img src={imageUrl} alt="item" />
-            </div>
-            <span className="name">{name}</span>
-            <span className="quantity">
+            </ImageContainer>
+            <TextContainer className="name">{name}</TextContainer>
+            <QuantityContainer className="quantity">
                 <div className="arrow" onClick={removeItemHandler}>&#10094;</div>
                     <span className="value">{quantity}</span>
                 <div className="arrow" onClick={addItemHandler}>&#10095;</div>
-            </span>
-            <span className="price">{price}</span>
-            <span className="remove-button" onClick={clearItemHandler}>&#10005;</span>
-        </div>
+            </QuantityContainer>
+            <TextContainer className="price">{price}</TextContainer>
+            <RemoveButtonContainer className="remove-button" onClick={clearItemHandler}>&#10005;</RemoveButtonContainer>
+        </CheckoutItemContainer>
     )
 
 }

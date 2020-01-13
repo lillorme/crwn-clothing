@@ -1,9 +1,13 @@
 import React from 'react';
-import './SignIn.css';
 import Input from '../Form/Input/Input';
 import Button from '../Form/Button/Button';
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
-
+import {
+    SignInContainer,
+    SignInTitle,
+    ButtonsBarContainer
+  } from './sign-in.styles';
+  
 interface IProps {
     data: string;
 }
