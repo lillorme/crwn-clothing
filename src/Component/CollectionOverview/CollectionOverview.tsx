@@ -8,6 +8,8 @@ import { CollectionsOverviewContainer } from './collections-overview.styles';
 
 const CollectionOverview = (props:any) => {
 
+    console.log(props);
+
     const {  collections } = props;
 
     return(

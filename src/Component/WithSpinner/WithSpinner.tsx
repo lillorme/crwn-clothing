@@ -3,18 +3,23 @@ import { SpinnerOverlay, SpinnerContainer} from './with-spinner.styles';
 
 const withSpinner = (WrappedComponent:any) => {
 
-    const {isLoading, ...otherProps} = WrappedComponent;
+   const Spinner = (props:any) => {
+       
+    const { isloading } = props;
 
-    return(
-        isLoading ? 
-        <SpinnerOverlay>
-            <SpinnerContainer>
 
-            </SpinnerContainer>
-        </SpinnerOverlay>
-        :
-        <WrappedComponent {...otherProps}/>
-    )
-}
+            return isloading ? (
+                <SpinnerOverlay>
+                    <SpinnerContainer />
+                </SpinnerOverlay>
+                ):(
+                <WrappedComponent {...props}/>
+            );
+
+        };
+
+    return Spinner;
+
+};
 
 export default withSpinner;

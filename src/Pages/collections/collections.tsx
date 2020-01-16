@@ -3,13 +3,15 @@ import {CollectionPageContainer, CollectionTitle, CollectionItemsContainer} from
 import { connect } from 'react-redux';
 import { selectCollection } from '../../redux/shop/shop.selector';
 import CollectionItem from '../../Component/CollectionItem/CollectionItem';
+import { updateCollections } from '../../redux/shop/shop.action';
 
 const Collections = (props:any) => {
 
-    const { collection } = props;
+    console.log(props);
 
+    const { collection } = props;
     const { title, items } = collection;
-    console.log(items);
+
     return(
         <CollectionPageContainer className="collection-page">
             <CollectionTitle className="title">{title}</CollectionTitle>
@@ -24,12 +26,10 @@ const Collections = (props:any) => {
     )
 }
 
-const mapStateToProps = (props:any) => {
-    console.log(props);
-    const {ownProps, state } = props;
-    return({
-        collection: selectCollection(ownProps.match.params.categoryId)(state)
-    })
-};
+const mapStateToProps = (state:any, ownProps:any) => ({
+   
+    collection: selectCollection(ownProps.match.params.categoryId)(state)
+  
+});
 
 export default connect(mapStateToProps)(Collections);

@@ -11,17 +11,13 @@ import { updateCollections } from '../../redux/shop/shop.action';
 import WithSpinner from '../../Component/WithSpinner/WithSpinner';
 
 interface Props{
-  match:any,
   updateCollections:any,
+  match:any,
 }
 
-const CollectionOverviewWithSpinner = () => {
-  return WithSpinner(CollectionOverview);
-}
+const CollectionOverviewWithSpinner = WithSpinner(CollectionOverview);
   
-const CollectionPageWithSpinner = () => {
-  return WithSpinner(Collections);
-}
+const CollectionPageWithSpinner = WithSpinner(Collections);
 
 class Shop extends React.Component<Props> {
 
@@ -43,7 +39,10 @@ class Shop extends React.Component<Props> {
  
   render(){
 
+    console.log(this.props)
+
     const { match } = this.props;
+  
     const { loading } = this.state;
 
     return (
@@ -54,7 +53,7 @@ class Shop extends React.Component<Props> {
             path={`${match.path}`} 
             render={(props:any) => (
 
-              <CollectionOverviewWithSpinner isloading={loading} {...props}/>
+              <CollectionOverviewWithSpinner isloading={loading} {...props} />
 
             )} 
           />
